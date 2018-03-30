@@ -103,6 +103,6 @@ function division(Value1, Value2) { //Division
 
 function retournerunstring(Value) { //Return string from a number
   number = Value;
-  number = KDA.toFixed(2);
+  number = number.toFixed(2);
   return number.toString();
 }
