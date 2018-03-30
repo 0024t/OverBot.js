@@ -102,7 +102,7 @@ function division(Value1, Value2) { //Division
 }
 
 function retournerunstring(Value) { //Return string from a number
-  KDA = Value;
-  KDA = KDA.toFixed(2);
-  return KDA.toString();
+  number = Value;
+  number = KDA.toFixed(2);
+  return number.toString();
 }
