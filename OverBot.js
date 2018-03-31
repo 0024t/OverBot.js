@@ -37,21 +37,49 @@ bot.on("message", message => {
           },
           fields: [{
               name: "Global informations :",
-              value: "Level : " + data.profile.level + "\nTier : " + data.profile.tier + "\nRank  :  " + data.profile.rank
+              value: "Level : " + data.profile.level
+               + "\nTier : " + data.profile.tier
+                + "\nRank  :  " + data.profile.rank
             },
             {
               name: "Stats (Quickplay) :  ",
-              value: "Death  :  " + data.quickplay.global.deaths + "\nEliminations  :  " + data.quickplay.global.eliminations + "\nGames won  :  " + data.quickplay.global.games_won +"\n ",
+              value: "Death  :  " + data.quickplay.global.deaths
+               + "\nEliminations  :  " + data.quickplay.global.eliminations
+                + "\nGames won  :  " + data.quickplay.global.games_won
+                 + "\n ",
               inline: true
             },
             {
               name: "Stats (Actual competitive season) :  ",
-              value: "Death  :  " + IsNull(data.competitive.global.deaths) + "\nEliminations  :  " + IsNull(data.competitive.global.eliminations) + "\nGames won  :  " + data.competitive.global.games_won + "\n ",
+              value: "Death  :  " + IsNull(data.competitive.global.deaths)
+               + "\nEliminations  :  " + IsNull(data.competitive.global.eliminations)
+                + "\nGames won  :  " + data.competitive.global.games_won
+                 + "\n ",
               inline: true
             },
             {
+              name: "Medal (Quickplay) :",
+              value: "Total  :  " + data.quickplay.global.medals
+               + "\nBronze  :  " + data.quickplay.global.medals_bronze
+                + "\nSilver  :  " + data.quickplay.global.medals_silver
+                 + "\nGold  :  " + data.quickplay.global.medals_gold,
+                 inline: true 
+            },
+            {
+              name: "Medal (Actual competitive season) :",
+              value: "Total  :  " + data.competitive.global.medals
+               + "\nBronze  :  " + data.competitive.global.medals_bronze
+                + "\nSilver  :  " + data.competitive.global.medals_silver
+                 + "\nGold  :  " + data.competitive.global.medals_gold,
+                 inline: true 
+            },
+            {
               name: "Random stats :",
-              value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best) + "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best + "\nGlobal Kill by life ratio  :  " + retournerunstring(division(addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths))) + "\n " ,
+              value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best)
+               + "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best
+                + "\nGlobal Kill by life ratio  :  " + ReturnAString(Division(Addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths)))
+                 + "\n ",
+              inline: true
             }
           ],
           timestamp: new Date(),
@@ -68,7 +96,7 @@ bot.on("message", message => {
   }
 });
 
-function addition(Value1, Value2) { //Addition
+function Addition(Value1, Value2) { //Addition
   result = Value1 + Value2
   return result
 }
@@ -81,12 +109,12 @@ function IsNull(Data) { //Check the value of a variable
     }
 }
 
-function division(Value1, Value2) { //Division
+function Division(Value1, Value2) { //Division
   result = Value1 / Value2
   return result;
 }
 
-function retournerunstring(Value) { //Return string from a number
+function ReturnAString(Value) { //Return string from a number
   number = Value;
   number = number.toFixed(2);
   return number.toString();
