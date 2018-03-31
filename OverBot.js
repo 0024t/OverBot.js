@@ -10,6 +10,7 @@ bot.login(process.argv[2]) //get the bot token
 
 bot.on("ready", function () {
   console.log("Connected")
+  bot.user.setPresence("online")
 })
 
 bot.on("message", message => {
@@ -28,47 +29,29 @@ bot.on("message", message => {
             url: data.profile.url,
           },
           footer: {
-            icon_url: bot.avatar,
+            icon_url: bot.user.avatarURL,
             text: "© Edorion"
           },
           thumbnail: {
             url: data.profile.avatar
           },
           fields: [{
-              name: "Level :",
-              value: data.profile.level
+              name: "Global informations :",
+              value: "Level : " + data.profile.level + "\nTier : " + data.profile.tier + "\nRank  :  " + data.profile.rank
             },
             {
-              name: "Tier :",
-              value: data.profile.tier
-            },
-            {
-              name: "Deaths (Total) :",
-              value: addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths),
+              name: "Stats (Quickplay) :  ",
+              value: "Death  :  " + data.quickplay.global.deaths + "\nEliminations  :  " + data.quickplay.global.eliminations + "\nGames won  :  " + data.quickplay.global.games_won +"\n ",
               inline: true
             },
             {
-              name: "Eliminations (Total) :",
-              value: addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations),
+              name: "Stats (Actual competitive season) :  ",
+              value: "Death  :  " + IsNull(data.competitive.global.deaths) + "\nEliminations  :  " + IsNull(data.competitive.global.eliminations) + "\nGames won  :  " + data.competitive.global.games_won + "\n ",
               inline: true
             },
             {
-              name: "Games won (Total) :",
-              value: addition(IsNull(data.competitive.global.games_won), data.quickplay.global.games_won),
-            },
-            {
-              name: "Best killstreak (Competitive) :",
-              value: IsNull(data.competitive.global.kill_streak_best),
-              inline: true
-            },
-            {
-              name: "Best killstreak (Quickplay) :",
-              value: data.quickplay.global.kill_streak_best,
-              inline: true
-            },
-            {
-              name: "Kill by life",
-              value: retournerunstring(division(addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths)))
+              name: "Random stats :",
+              value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best) + "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best + "\nGlobal Kill by life ratio  :  " + retournerunstring(division(addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths))) + "\n " ,
             }
           ],
           timestamp: new Date(),
@@ -79,7 +62,9 @@ bot.on("message", message => {
   if (message.content.startsWith("OverBot shutdown")) { //Shutdown the bot
     message.channel.sendMessage("Disconnected")
     bot.user.exit;
-    process.exit(0)
+    setTimeout(function() {
+      process.exit(0)
+    }, 3000);
   }
 });
 
