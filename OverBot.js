@@ -30,7 +30,7 @@ bot.on("message", message => {
           },
           footer: {
             icon_url: bot.user.avatarURL,
-            text: "© Edorion"
+            text: "OverBot.js V0.6.0, © Edorion"
           },
           thumbnail: {
             url: data.profile.avatar
