@@ -21,7 +21,7 @@ bot.on("message", message => {
     message.delete
     owjs //Main function
       .getAll('pc', 'eu', pseudo[1].split("#").join("-"))
-      .then((data) => message.channel.send({
+      .then((data) => console.dir(data) & message.channel.send({
         embed: {
           color: message.member.highestRole.color,
           author: {
@@ -31,7 +31,7 @@ bot.on("message", message => {
           },
           footer: {
             icon_url: bot.user.avatarURL,
-            text: "OverBot.js V0.6.0, © Edorion"
+            text: "OverBot.js V0.6.1, © Edorion"
           },
           thumbnail: {
             url: RankImage(data.profile.rank)
@@ -40,7 +40,7 @@ bot.on("message", message => {
               name: "Global informations :",
               value: "Level : " + data.profile.level
                + "\nTier : " + data.profile.tier
-                + "\nRank  :  " + data.profile.rank
+                + "\nRank  :  " + IsNull(data.profile.ranking) + " (" + data.profile.rank + ")"
             },
             {
               name: "Stats (Quickplay) :  ",
@@ -125,22 +125,22 @@ function RankImage(Rank = 0) {
   if (Rank <= 1499) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-1.png"
   }
-  else if (1500 <= Rank <= 1999) {
+  else if (Rank >= 1500 & Rank <= 1999) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-2.png"
   }
-  else if (2000 <= Rank <= 2499) {
+  else if (Rank >= 2000 & Rank <= 2499) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-3.png"
   }
-  else if (2500 <= Rank <= 2999) {
+  else if (Rank >= 2500 & Rank <= 2999) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-4.png"
   }
-  else if (3000 <= Rank <= 3499) {
+  else if (Rank >= 3000 & Rank <= 3499) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-5.png"
   }
-  else if (3500 <= Rank <= 3999) {
+  else if (Rank >= 3500 & Rank <= 3999) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-6.png"
   }
-  else if (4000 <= Rank) {
+  else if (Rank >= 4000) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-7.png"
   }
 }
