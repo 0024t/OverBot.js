@@ -1,3 +1,14 @@
+/* 
+Do not delete depencies !!
+Day/Hours/Minutes converter is taken from : https://www.neowin.net/forum/topic/817666-javascriptconvert-seconds-to-days-hours-minutes-and-seconds/
+You can found the overwatch-js github here : https://github.com/gclem/overwatch-js/ 
+
+OverBot.js V0.6.3, © Edorion
+*/
+
+
+
+
 const Discord = require("discord.js");
 let fs = require("fs");
 var request = require("request");
@@ -23,7 +34,7 @@ bot.on("message", message => {
       .getAll('pc', 'eu', pseudo[1].split("#").join("-"))
       .then((data) => console.dir(data) & message.channel.send({
         embed: {
-          color: message.member.highestRole.color,
+          color: 16738560,
           author: {
             name: data.profile.nick + "\'s profile",
             url: data.profile.url,
@@ -31,7 +42,7 @@ bot.on("message", message => {
           },
           footer: {
             icon_url: bot.user.avatarURL,
-            text: "OverBot.js V0.6.1, © Edorion"
+            text: "OverBot.js V0.6.3, © Edorion"
           },
           thumbnail: {
             url: RankImage(data.profile.rank)
@@ -79,7 +90,7 @@ bot.on("message", message => {
               value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best)
                + "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best
                 + "\nGlobal Kill by life ratio  :  " + ReturnAString(Division(Addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), Addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths)))
-                 + "\n ",
+                 + "\nTime played  :  " + secondsToString(Addition(data.quickplay.global.time_played, data.competitive.global.time_played)/1000),
               inline: true
             }
           ],
@@ -143,4 +154,18 @@ function RankImage(Rank = 0) {
   else if (Rank >= 4000) {
     return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-7.png"
   }
+}
+
+function secondsToString(seconds)
+
+{
+
+var numdays = Math.floor(seconds / 86400);
+
+var numhours = Math.floor((seconds % 86400) / 3600);
+
+var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
+
+return numdays + "d " + numhours + "h " + numminutes + "m ";
+
 }
