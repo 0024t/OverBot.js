@@ -32,7 +32,7 @@ bot.on("message", message => {
     message.delete
     owjs //Main function
       .getAll('pc', 'eu', pseudo[1].split("#").join("-"))
-      .then((data) => console.dir(data) & message.channel.send({
+      .then((data) => message.channel.send({
         embed: {
           color: 16738560,
           author: {
