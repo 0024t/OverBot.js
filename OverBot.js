@@ -27,13 +27,14 @@ bot.on("message", message => {
           author: {
             name: data.profile.nick + "\'s profile",
             url: data.profile.url,
+            icon_url: data.profile.avatar
           },
           footer: {
             icon_url: bot.user.avatarURL,
             text: "OverBot.js V0.6.0, © Edorion"
           },
           thumbnail: {
-            url: data.profile.avatar
+            url: RankImage(data.profile.rank)
           },
           fields: [{
               name: "Global informations :",
@@ -77,7 +78,7 @@ bot.on("message", message => {
               name: "Random stats :",
               value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best)
                + "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best
-                + "\nGlobal Kill by life ratio  :  " + ReturnAString(Division(Addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths)))
+                + "\nGlobal Kill by life ratio  :  " + ReturnAString(Division(Addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), Addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths)))
                  + "\n ",
               inline: true
             }
@@ -118,4 +119,28 @@ function ReturnAString(Value) { //Return string from a number
   number = Value;
   number = number.toFixed(2);
   return number.toString();
+}
+
+function RankImage(Rank = 0) {
+  if (Rank <= 1499) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-1.png"
+  }
+  else if (1500 <= Rank <= 1999) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-2.png"
+  }
+  else if (2000 <= Rank <= 2499) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-3.png"
+  }
+  else if (2500 <= Rank <= 2999) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-4.png"
+  }
+  else if (3000 <= Rank <= 3499) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-5.png"
+  }
+  else if (3500 <= Rank <= 3999) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-6.png"
+  }
+  else if (4000 <= Rank) {
+    return "https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-7.png"
+  }
 }
