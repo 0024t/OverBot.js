@@ -6,8 +6,10 @@ To launch it, install node.js, and start the bot with the command : node LOCATIO
 Have fun !!
 
 Commands :
+
 -OwStat Player#1234 = Send embed with player stats.
 -OverBot shutdown = Shutdown the bot.
+
 
 If you want to add something, tell me. 
 
