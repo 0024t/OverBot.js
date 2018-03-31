@@ -65,7 +65,7 @@ bot.on("message", message => {
               name: "Stats (Actual competitive season) :  ",
               value: "Death  :  " + IsNull(data.competitive.global.deaths)
                + "\nEliminations  :  " + IsNull(data.competitive.global.eliminations)
-                + "\nGames won  :  " + data.competitive.global.games_won
+                + "\nGames won  :  " + IsNull(data.competitive.global.games_won)
                  + "\n ",
               inline: true
             },
@@ -79,10 +79,10 @@ bot.on("message", message => {
             },
             {
               name: "Medal (Actual competitive season) :",
-              value: "Total  :  " + data.competitive.global.medals
-               + "\nBronze  :  " + data.competitive.global.medals_bronze
-                + "\nSilver  :  " + data.competitive.global.medals_silver
-                 + "\nGold  :  " + data.competitive.global.medals_gold,
+              value: "Total  :  " + IsNull(data.competitive.global.medals)
+               + "\nBronze  :  " + IsNull(data.competitive.global.medals_bronze)
+                + "\nSilver  :  " + IsNull(data.competitive.global.medals_silver)
+                 + "\nGold  :  " + IsNull(data.competitive.global.medals_gold),
                  inline: true 
             },
             {
