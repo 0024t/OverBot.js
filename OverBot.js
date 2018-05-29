@@ -3,7 +3,7 @@ Do not delete depencies !!
 Day/Hours/Minutes converter is taken from : https://www.neowin.net/forum/topic/817666-javascriptconvert-seconds-to-days-hours-minutes-and-seconds/
 You can found the overwatch-js github here : https://github.com/gclem/overwatch-js/ 
 
-OverBot.js V0.6.3, © Edorion
+OverBot.js V0.6.4, © Edorion
 */
 
 
@@ -25,7 +25,6 @@ bot.on("ready", function () {
 })
 
 bot.on("message", message => {
-  console.log(message.guild + "  :  " + message.author.username + ": " + message); //Write server's messages on the console log
 
   if (message.content.startsWith("OwStat")) { 
     pseudo = message.content.split(" ", 2);
@@ -42,7 +41,7 @@ bot.on("message", message => {
           },
           footer: {
             icon_url: bot.user.avatarURL,
-            text: "OverBot.js V0.6.3, © Edorion"
+            text: "OverBot.js V0.6.4, © Edorion"
           },
           thumbnail: {
             url: RankImage(data.profile.rank)
@@ -52,6 +51,8 @@ bot.on("message", message => {
               value: "Level : " + data.profile.level
                + "\nTier : " + data.profile.tier
                 + "\nRank  :  " + IsNull(data.profile.ranking) + " (" + data.profile.rank + ")"
+                  + "\nMost played hero (Quickplay)  :  " + data.quickplay.global.masteringHeroe
+                   + "\nMost played hero (Competitive)  :  " + IsNull(data.competitive.global.masteringHeroe)
             },
             {
               name: "Stats (Quickplay) :  ",
@@ -62,15 +63,15 @@ bot.on("message", message => {
               inline: true
             },
             {
-              name: "Stats (Actual competitive season) :  ",
+              name: "Stats (Competitive) :  ",
               value: "Death  :  " + IsNull(data.competitive.global.deaths)
                + "\nEliminations  :  " + IsNull(data.competitive.global.eliminations)
-                + "\nGames won  :  " + IsNull(data.competitive.global.games_won)
+                + "\nGames won (Actual season)  :  " + IsNull(data.competitive.global.games_won)
                  + "\n ",
               inline: true
             },
             {
-              name: "Medal (Quickplay) :",
+              name: "Medal (Quickplay)  :",
               value: "Total  :  " + data.quickplay.global.medals
                + "\nBronze  :  " + data.quickplay.global.medals_bronze
                 + "\nSilver  :  " + data.quickplay.global.medals_silver
@@ -78,7 +79,7 @@ bot.on("message", message => {
                  inline: true 
             },
             {
-              name: "Medal (Actual competitive season) :",
+              name: "Medal (Competitive)  :",
               value: "Total  :  " + IsNull(data.competitive.global.medals)
                + "\nBronze  :  " + IsNull(data.competitive.global.medals_bronze)
                 + "\nSilver  :  " + IsNull(data.competitive.global.medals_silver)
