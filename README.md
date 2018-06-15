@@ -1,11 +1,20 @@
 # OverBot.js
 Welcome to the best (maybe) overwatch stat tracker for discord !!!
 
-To launch it, install node.js, and start the bot with the command : node LOCATION_OF_THE_BOT\OverBot.js YOUR_BOT_TOKEN
+# How to install
 
-Have fun !!
+First install node.js.
+You need to install depencies, so :
+-Open the command prompt.
+-Go to the directory you installed the bot.
+-Do npm install
+-OPTIONAL : Do npm update
+ 
+ Then you're ready to start the bot with thee command node .\OverBot.js YOUR_BOT_TOKEN
 
-Commands :
+ Have fun !!
+
+# Commands
 
 -OwStat Player#1234 = Send embed with player stats.
 
@@ -14,4 +23,4 @@ Commands :
 
 If you want to add something, tell me. 
 
-P.S: actually there is a lot of overwatch bot on the fantastic world of internet, so help me to make this bot better than the others !!
+P.S: actually there is a lot of overwatch bot on internet, so help me to make this bot better !!

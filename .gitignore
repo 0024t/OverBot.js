@@ -6,7 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Token
-Token.tok
+Token.txt
+index.html
 
 # Runtime data
 pids

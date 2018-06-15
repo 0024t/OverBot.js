@@ -1,0 +1,24 @@
+{
+  "name": "overbot",
+  "version": "0.6.5",
+  "description": "Welcome to the best (maybe) overwatch stat tracker for discord !!!",
+  "main": "OverBot.js",
+  "dependencies": {
+    "discord.js": "11.3.2",
+    "overwatch-js": "1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0024t/OverBot.js.git"
+  },
+  "author": "Edorion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0024t/OverBot.js/issues"
+  },
+  "homepage": "https://github.com/0024t/OverBot.js#readme"
+}
