@@ -3,7 +3,7 @@ Do not delete depencies !!
 Day/Hours/Minutes converter is taken from : https://www.neowin.net/forum/topic/817666-javascriptconvert-seconds-to-days-hours-minutes-and-seconds/
 You can found the overwatch-js github here : https://github.com/gclem/overwatch-js/ 
 
-OverBot.js V0.6.5, © Edorion
+OverBot.js V0.7.0b, © Edorion
 */
 
 
@@ -41,7 +41,7 @@ bot.on("message", message => {
           },
           footer: {
             icon_url: bot.user.avatarURL,
-            text: "OverBot.js V0.6.4, © Edorion"
+            text: "OverBot.js V0.7.0b, © Edorion"
           },
           thumbnail: {
             url: RankImage(data.profile.rank)

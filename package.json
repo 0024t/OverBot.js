@@ -1,6 +1,6 @@
 {
   "name": "overbot",
-  "version": "0.6.5",
+  "version": "0.7.0b",
   "description": "Welcome to the best (maybe) overwatch stat tracker for discord !!!",
   "main": "OverBot.js",
   "dependencies": {
