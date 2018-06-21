@@ -11,8 +11,8 @@ OverBot.js V0.7.0b, © Edorion
 
 const Discord = require("discord.js");
 let fs = require("fs");
-var request = require("request");
-var owjs = require("overwatch-js");
+const request = require("request");
+const owjs = require("overwatch-js");
 var pseudo;
 const bot = new Discord.Client()
 var KDA = 0;

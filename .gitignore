@@ -9,6 +9,15 @@ yarn-error.log*
 Token.txt
 index.html
 
+#Fonts
+*.ttf
+
+#Font folder
+fonts/
+
+#image folder
+images/
+
 # Runtime data
 pids
 *.pid
