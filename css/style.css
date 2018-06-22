@@ -1,0 +1,152 @@
+#background-image {
+  background-image: url("../images/background_image.jpg");
+  background-size: 72%;
+  left: 35%;
+  top: -20px;
+  position: fixed;
+  width: 120%;
+  height: 120%;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+font-face {
+  font-family: "Consolas";
+  src: local("fonts/consola.ttf") format("truetype");
+}
+
+#back2 {
+  background-color: #2c2f33;
+  width: 65%;
+  height: 100%;
+  position: fixed;
+  top: -16px;
+  left: 0;
+  border: 0;
+  box-shadow: 15px -6px 50px black;
+}
+
+#startbtn {
+  position: fixed;
+  border-radius: 25px;
+  background-color: #06a800;
+  color: #FFFFFF;
+  font-family: Verdana;
+  font-size: 220%;
+  text-align: center;
+  padding: 20px;
+  width: 12%;
+  height: 8%;
+  top: 5%;
+  left: 4%;
+}
+
+#stopbtn {
+  position: fixed;
+  border-radius: 25px;
+  background-color: #cf0000;
+  color: #FFFFFF;
+  font-family: Verdana;
+  font-size: 220%;
+  text-align: center;
+  padding: 20px;
+  width: 12%;
+  height: 8%;
+  top: 21%;
+  left: 4%;
+}
+
+#backbtn {
+  position: fixed;
+  border-radius: 25px;
+  background-color: #242629;
+  padding: 20px;
+  width: 16.5%;
+  height: 33%;
+  top: 20px;
+  left: 20px;
+}
+
+#textfield {
+  position: fixed;
+  border-radius: 25px;
+  border-style: hidden;
+  border-color: #43484e;
+  background-color: #43484e;
+  padding: 20px;
+  width: 37%;
+  height: 2%;
+  top: 35px;
+  left: 23%;
+  color: #FFFFFF;
+  font-family: Consolas;
+  font-size: 115%;
+}
+
+#logs {
+  position: fixed;
+  border-radius: 25px;
+  background-color: #43484e;
+  color: #FFFFFF;
+  font-family: Consolas;
+  padding: 20px;
+  width: 37%;
+  height: 20%;
+  top: 100px;
+  left: 23%;
+}
+
+#status {
+  position: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  bottom: 2%;
+  right: 2%;
+  box-shadow: 15px -6px 50px black;
+}
+
+.ok {
+  background-image: url("../images/ok.png");
+}
+
+.forbidden {
+  background-image: url("../images/forbidden.png");
+}
+
+.loading {
+  background-image: url("../images/loading.png");
+}
+
+#startbtn:hover {
+  box-shadow: 10px 10px 50px black;
+  background-color: #059100;
+}
+
+#stopbtn:hover {
+  box-shadow: 10px 10px 50px black;
+  background-color: #9c0000;
+}
+
+#startbtn:active {
+  box-shadow: 10px 10px 50px black;
+  background-color: #023a00;
+}
+
+#stopbtn:active {
+  box-shadow: 10px 10px 50px black;
+  background-color: #6b0000;
+}
+
+#logs:hover {
+  box-shadow: 10px 10px 50px black;
+}
+
+#textfield:hover {
+  box-shadow: 10px 10px 50px black;
+}
