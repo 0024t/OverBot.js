@@ -10,24 +10,19 @@ OverBot.js V0.7.0b, © Edorion
 
 
 const Discord = require("discord.js");
-let fs = require("fs");
+const fs = require("fs");
 const request = require("request");
 const owjs = require("overwatch-js");
 var pseudo;
 const bot = new Discord.Client()
 var KDA = 0;
+var token = fs.readFileSync('token.txt', 'utf8');
 
-bot.login(process.argv[2]) //get the bot token
+bot.login(token)
 
 bot.on("ready", function () {
   console.log("Connected")
   bot.user.setPresence("online")
-  fs.writeFile("txts/pid.txt", process.pid, function(err) {
-    if(err) {
-        return console.log(err);
-    }
-    console.log("Pid sucessfully writen. (" + process.pid + ")");
-}); 
 })
 
 bot.on("message", message => {
@@ -105,15 +100,15 @@ bot.on("message", message => {
           timestamp: new Date(),
         }
       })).catch(error => message.channel.send("This player does not exist. Please try again.") && console.log("Error : player does not exist"))
-  }
+    }
 
-  // if (message.content.startsWith("OverBot shutdown")) { //Shutdown the bot
-  //   message.channel.send("Disconnected")
-  //   bot.user.exit;
-  //   setTimeout(function () {
-  //     process.exit(0)
-  //   }, 3000);
-  // }
+   if (message.content.startsWith("OverBot shutdown")) { //Shutdown the bot
+    message.channel.send("Disconnected")
+    bot.user.exit;
+     setTimeout(function () {
+       process.exit(0)
+     }, 3000);
+   }
 });
 
 function Addition(Value1, Value2) { //Addition

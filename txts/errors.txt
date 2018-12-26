@@ -1,8 +1,0 @@
-(node:11552) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: getaddrinfo ENOTFOUND discordapp.com discordapp.com:443
-(node:11552) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-nohup: missing operand
-Try 'nohup --help' for more information.
-nohup: missing operand
-Try 'nohup --help' for more information.
-nohup: missing operand
-Try 'nohup --help' for more information.

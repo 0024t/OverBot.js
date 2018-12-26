@@ -1,2 +1,0 @@
-Connected
-Pid sucessfully writen. (6120)
