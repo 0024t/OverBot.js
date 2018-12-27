@@ -5,7 +5,7 @@
   "main": "OverBot.js",
   "dependencies": {
     "discord.js": "11.3.2",
-    "overwatch-js": "1.7.0"
+    "overwatch-js": "^1.8.0"
   },
   "devDependencies": {},
   "scripts": {

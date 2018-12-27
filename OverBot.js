@@ -33,7 +33,7 @@ bot.on("message", message => {
     message.delete
     owjs //Main function
       .getAll('pc', 'eu', pseudo[1].split("#").join("-"))
-      .then((data) => message.channel.send({
+      .then((data) => console.log(data) && message.channel.send({
         embed: {
           color: 16738560,
           author: {
@@ -75,9 +75,9 @@ bot.on("message", message => {
             {
               name: "Medal (Quickplay)  :",
               value: "Total  :  " + data.quickplay.global.medals +
-                "\nBronze  :  " + data.quickplay.global.medals_bronze +
-                "\nSilver  :  " + data.quickplay.global.medals_silver +
-                "\nGold  :  " + data.quickplay.global.medals_gold,
+                "Bronze  :  " + data.quickplay.global.medals_bronze +
+                "Silver  :  " + data.quickplay.global.medals_silver +
+                "Gold  :  " + data.quickplay.global.medals_gold,
               inline: true
             },
             {
