@@ -1,9 +1,8 @@
 /* 
 Do not delete depencies !!
-Day/Hours/Minutes converter is taken from : https://www.neowin.net/forum/topic/817666-javascriptconvert-seconds-to-days-hours-minutes-and-seconds/
-You can found the overwatch-js github here : https://github.com/gclem/overwatch-js/ 
+You can find the overwatch-js github here : https://github.com/gclem/overwatch-js/ 
 
-OverBot.js V0.7.0b, © Edorion
+OverBot.js V0.8.0, © Edorion
 */
 
 
@@ -16,7 +15,7 @@ const owjs = require("overwatch-js");
 var pseudo;
 const bot = new Discord.Client()
 var KDA = 0;
-var token = fs.readFileSync('token.txt', 'utf8');
+var token = fs.readFileSync('Token.txt', 'utf8');
 
 bot.login(token)
 
@@ -33,20 +32,20 @@ bot.on("message", message => {
     message.delete
     owjs //Main function
       .getAll('pc', 'eu', pseudo[1].split("#").join("-"))
-      .then((data) => console.log(data) && message.channel.send({
+      .then((data) => message.channel.send({
         embed: {
           color: 16738560,
           author: {
             name: data.profile.nick + "\'s profile",
             url: data.profile.url,
-            icon_url: data.profile.avatar
+            icon_url: RankImage(data.profile.rank)
           },
           footer: {
             icon_url: bot.user.avatarURL,
             text: "OverBot.js V0.7.0b, © Edorion"
           },
           thumbnail: {
-            url: RankImage(data.profile.rank)
+            url: data.profile.avatar
           },
           fields: [{
               name: "Global informations :",
@@ -65,23 +64,23 @@ bot.on("message", message => {
               inline: true
             },
             {
-              name: "Stats (Competitive) :  ",
+              name: "Stats (Last competitive season) :  ",
               value: "Death  :  " + IsNull(data.competitive.global.deaths) +
                 "\nEliminations  :  " + IsNull(data.competitive.global.eliminations) +
-                "\nGames won (Actual season)  :  " + IsNull(data.competitive.global.games_won) +
+                "\nGames won  :  " + IsNull(data.competitive.global.games_won) +
                 "\n ",
               inline: true
             },
             {
               name: "Medal (Quickplay)  :",
               value: "Total  :  " + data.quickplay.global.medals +
-                "Bronze  :  " + data.quickplay.global.medals_bronze +
-                "Silver  :  " + data.quickplay.global.medals_silver +
-                "Gold  :  " + data.quickplay.global.medals_gold,
+                "\nBronze  :  " + data.quickplay.global.medals_bronze +
+                "\nSilver  :  " + data.quickplay.global.medals_silver +
+                "\nGold  :  " + data.quickplay.global.medals_gold,
               inline: true
             },
             {
-              name: "Medal (Competitive)  :",
+              name: "Medal (Last competitive season)  :",
               value: "Total  :  " + IsNull(data.competitive.global.medals) +
                 "\nBronze  :  " + IsNull(data.competitive.global.medals_bronze) +
                 "\nSilver  :  " + IsNull(data.competitive.global.medals_silver) +
@@ -89,8 +88,8 @@ bot.on("message", message => {
               inline: true
             },
             {
-              name: "Random stats :",
-              value: "Best killstreak (Actual competitive season)  :  " + IsNull(data.competitive.global.kill_streak_best) +
+              name: "Random stats  :",
+              value: "Best killstreak (Competitive)  :  " + IsNull(data.competitive.global.kill_streak_best) +
                 "\nBest killstreak (Quickplay)  :  " + data.quickplay.global.kill_streak_best +
                 "\nGlobal Kill by life ratio  :  " + ReturnAString(Division(Addition(IsNull(data.competitive.global.eliminations), data.quickplay.global.eliminations), Addition(IsNull(data.competitive.global.deaths), data.quickplay.global.deaths))) +
                 "\nTime played  :  " + secondsToString(Addition(data.quickplay.global.time_played, data.competitive.global.time_played) / 1000),
@@ -154,8 +153,6 @@ function RankImage(Rank = 0) {
 }
 
 function secondsToString(seconds) {
-  var numdays = Math.floor(seconds / 86400);
-  var numhours = Math.floor((seconds % 86400) / 3600);
-  var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
-  return numdays + "d " + numhours + "h " + numminutes + "m ";
+  var numhours = Math.floor(seconds / 3600);
+  return numhours + " hours"
 }
