@@ -1,5 +1,5 @@
 # Warning 
-The API used to retrieve stats from playoverwatch.com is not yet updated, the bot doesnt work (18/02/202).
+The API used to retrieve stats from playoverwatch.com is not yet updated, the bot doesnt work (18/02/2020).
 
 # OverBot.js
 Welcome to the best (maybe) overwatch stat tracker for discord !!!
