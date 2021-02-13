@@ -6,9 +6,10 @@ Welcome to the best (maybe) overwatch stat tracker for discord !!!
 
 # How to install
 
-First install node.js.
-Run setup.bat.
-Then type in your bot token as asked. Check is there is a space at the end of Token.txt. Remove then if yes.
+ - First install node.js
+ - Run setup.bat
+ - Then type in your bot token as asked. Check if there is a space at the end of Token.txt. Remove it if needed.
+ 
 Now you can run the bot by using run.bat
 
 Have fun !!
